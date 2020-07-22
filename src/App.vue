@@ -3,24 +3,45 @@
     <a-layout id="components-layout-demo-fixed">
       <a-layout-header>
         <div class="logo" />
-        <a-menu theme="dark" mode="horizontal" :default-selected-keys="['2']">
-          <a-menu-item key="1">nav 1</a-menu-item>
-          <a-menu-item key="2">nav 2</a-menu-item>
-          <a-menu-item key="3">nav 3</a-menu-item>
+        <a-menu theme="dark" mode="horizontal" :default-selected-keys="['1']">
+          <a-menu-item key="1">
+            <router-link to="/">首页</router-link>
+          </a-menu-item>
+          <a-menu-item key="2" disabled>服务</a-menu-item>
+          <a-menu-item key="3" disabled>娱乐</a-menu-item>
+          <a-menu-item key="4">
+            <router-link to="/about">关于</router-link>
+          </a-menu-item>
+          <a-menu-item key="5" disabled>留言板</a-menu-item>
+          <a-menu-item key="6" disabled>用户中心</a-menu-item>
         </a-menu>
       </a-layout-header>
       <a-layout-content>
         <a-breadcrumb>
-          <a-breadcrumb-item>Home</a-breadcrumb-item>
-          <a-breadcrumb-item>List</a-breadcrumb-item>
-          <a-breadcrumb-item>App</a-breadcrumb-item>
+          <a-breadcrumb-item>首页</a-breadcrumb-item>
+          <a-breadcrumb-item>列表</a-breadcrumb-item>
+          <a-breadcrumb-item>应用</a-breadcrumb-item>
         </a-breadcrumb>
-        <div id="content">Content</div>
+        <div id="content">
+          <router-view />
+        </div>
       </a-layout-content>
       <a-layout-footer>Ant Design ©2020 Created by Yi Zheng</a-layout-footer>
     </a-layout>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'About',
+  data () {
+    return {
+      start: '',
+      ok: ''
+    }
+  }
+}
+</script>
 
 <style lang="less" scope>
 #components-layout-demo-fixed .logo {
