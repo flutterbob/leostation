@@ -3,7 +3,7 @@
     <a-layout id="components-layout-demo-fixed">
       <a-layout-header>
         <div class="logo" />
-        <a-menu theme="dark" mode="horizontal" :default-selected-keys="['1']">
+        <a-menu theme="light" mode="horizontal" :default-selected-keys="['1']">
           <a-menu-item key="1">
             <router-link to="/">首页</router-link>
           </a-menu-item>
@@ -17,11 +17,17 @@
         </a-menu>
       </a-layout-header>
       <a-layout-content>
-        <a-breadcrumb>
-          <a-breadcrumb-item>首页</a-breadcrumb-item>
-          <a-breadcrumb-item>列表</a-breadcrumb-item>
-          <a-breadcrumb-item>应用</a-breadcrumb-item>
-        </a-breadcrumb>
+        <a-carousel autoplay>
+          <div>
+            <h3>不听🙉</h3>
+          </div>
+          <div>
+            <h3>不看🙈</h3>
+          </div>
+          <div>
+            <h3>不说🙊</h3>
+          </div>
+        </a-carousel>
         <div id="content">
           <router-view />
         </div>
@@ -43,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="less" scope>
+<style scope lang="less">
 #components-layout-demo-fixed .logo {
   width: 120px;
   height: 31px;
@@ -62,7 +68,7 @@ export default {
   position: fixed;
   z-index: 1;
   width: 100%;
-  // background-color: rgba(255, 255, 255, 0.2);
+  background: #ffff;
 }
 
 .ant-layout-content {
@@ -79,7 +85,21 @@ export default {
   text-align: center;
 }
 
-.ant-breadcrumb {
-  margin: 16px 0;
+.ant-carousel {
+  margin: 10px 0px;
+  border-radius: 15px;
+  .slick-slide {
+    text-align: center;
+    height: 240px;
+    line-height: 240px;
+    background: #928e09;
+    overflow: hidden;
+  }
+}
+
+.ant-carousel {
+  .slick-slide h3 {
+    color: #fff;
+  }
 }
 </style>
