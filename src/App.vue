@@ -2,7 +2,9 @@
   <div id="app">
     <a-layout id="components-layout-demo-fixed">
       <a-layout-header>
-        <div class="logo" />
+        <div class="logo">
+          <img src="@/assets/images/brand.png" alt />
+        </div>
         <a-menu theme="light" mode="horizontal" :default-selected-keys="['1']">
           <a-menu-item key="1">
             <router-link to="/">首页</router-link>
@@ -50,14 +52,22 @@ export default {
 </script>
 
 <style scope lang="less">
-#components-layout-demo-fixed .logo {
-  width: 120px;
-  height: 31px;
-  background: rgba(255, 255, 255);
-  margin: 16px 24px 16px 0;
-  float: left;
+#components-layout-demo-fixed {
+  .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255);
+    margin: 16px 24px 16px 0;
+    float: left;
+    line-height: 31px;
+    // background-image: url(./public/Pic/Brand.png);
+    img {
+      margin-left: 30px;
+      width: 120%;
+      height: 120%;
+    }
+  }
 }
-
 #content {
   background: #fff;
   padding: 24px;
