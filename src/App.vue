@@ -62,7 +62,7 @@ export default {
     line-height: 31px;
     // background-image: url(./public/Pic/Brand.png);
     img {
-      margin-left: 30px;
+      margin-left: 30 px;
       width: 120%;
       height: 120%;
     }
