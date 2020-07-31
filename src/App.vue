@@ -1,39 +1,15 @@
 <template>
   <div id="app">
-    <a-layout id="components-layout-demo-fixed">
-      <a-layout-header>
-        <div class="logo">
-          <img src="@/assets/images/brand.png" alt />
-        </div>
-        <a-menu theme="light" mode="horizontal" :default-selected-keys="['1']">
-          <a-menu-item key="1">
-            <router-link to="/">首页</router-link>
-          </a-menu-item>
-          <a-menu-item key="2" disabled>服务</a-menu-item>
-          <a-menu-item key="3" disabled>娱乐</a-menu-item>
-          <a-menu-item key="4">
-            <router-link to="/about">关于</router-link>
-          </a-menu-item>
-          <a-menu-item key="5" disabled>留言板</a-menu-item>
-          <a-menu-item key="6" disabled>用户中心</a-menu-item>
-        </a-menu>
-      </a-layout-header>
-      <a-layout-content>
-        <a-carousel autoplay>
-          <div>
-            <h3>不听🙉</h3>
-          </div>
-          <div>
-            <h3>不看🙈</h3>
-          </div>
-          <div>
-            <h3>不说🙊</h3>
-          </div>
-        </a-carousel>
-        <div id="content">
-          <router-view />
-        </div>
-      </a-layout-content>
+    <a-layout id="app-layout">
+      <router-view name="header"></router-view>
+      <a-layout id="app-content-layout">
+        <a-layout-content>
+          <router-view name="content"></router-view>
+        </a-layout-content>
+        <a-layout-sider>
+          <router-view name="sider"></router-view>
+        </a-layout-sider>
+      </a-layout>
       <a-layout-footer>Ant Design ©2020 Created by Yi Zheng</a-layout-footer>
     </a-layout>
   </div>
@@ -52,64 +28,33 @@ export default {
 </script>
 
 <style scope lang="less">
-#components-layout-demo-fixed {
-  .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255);
-    margin: 16px 24px 16px 0;
-    float: left;
-    line-height: 31px;
-    // background-image: url(./public/Pic/Brand.png);
-    img {
-      margin-left: 30 px;
-      width: 120%;
-      height: 120%;
-    }
-  }
-}
-#content {
+#app-layout {
   background: #fff;
-  padding: 24px;
-  min-height: 380px;
 }
 
-.ant-layout-header {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  background: #ffff;
-}
-
-.ant-layout-content {
-  padding: 0 50px;
+#app-content-layout {
+  padding: 20px 60px 20px 60px;
   margin-top: 64px;
-}
+  text-align: center;
+  .ant-layout-content {
+    background: #fff;
+    color: #fff;
+    min-height: 500px;
+    line-height: 120px;
+    margin: 0;
+    height: 100%;
+    border: 1px solid #000;
+  }
 
-.ant-menu {
-  line-height: 64px;
-  float: right;
+  .ant-layout-sider {
+    padding: 0px 5px 0px 5px;
+    background: none;
+    height: 100%;
+  }
 }
 
 .ant-layout-footer {
+  background: #fff;
   text-align: center;
-}
-
-.ant-carousel {
-  margin: 10px 0px;
-  border-radius: 15px;
-  .slick-slide {
-    text-align: center;
-    height: 240px;
-    line-height: 240px;
-    background: #928e09;
-    overflow: hidden;
-  }
-}
-
-.ant-carousel {
-  .slick-slide h3 {
-    color: #fff;
-  }
 }
 </style>

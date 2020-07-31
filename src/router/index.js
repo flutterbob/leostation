@@ -1,14 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../components/Home.vue'
+import Header from '../components/Header.vue'
+import Carousel from '../components/Carousel.vue'
+import Sider from '../components/Sider.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'index',
+    components: {
+      header: Header,
+      carousel: Carousel,
+      content: Home,
+      sider: Sider
+    }
   },
   {
     path: '/about',
@@ -16,7 +24,12 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    components: {
+      header: Header,
+      carousel: Carousel,
+      content: () =>
+        import(/* webpackChunkName: "about" */ '../components/About.vue')
+    }
   }
 ]
 
