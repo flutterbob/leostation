@@ -1,5 +1,7 @@
 <template>
-  <div>Content</div>
+  <div class="container">
+    <div class="inner">inner</div>
+  </div>
 </template>
 
 <script>
@@ -16,20 +18,38 @@ export default {
 </script>
 
 <style scoped>
-.ant-layout {
-  text-align: center;
+.caontainer {
+  width: 300px;
+  height: 200px;
+  background: pink;
+  position: relative;
 }
 
-.ant-layout-sider {
+.inner {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -50px;
+  background: #fff;
+  text-align: center;
+}
+/* .ant-layout {
+  text-align: center;
+} */
+
+/* .ant-layout-sider {
   padding: 5px;
   background: #fff;
   color: #fff;
   line-height: 120px;
   height: 100%;
   border: 1px solid #000;
-}
+} */
 
-.ant-layout-content {
+/* .ant-layout-content {
   background: #fff;
   color: #fff;
   min-height: 120px;
@@ -37,5 +57,5 @@ export default {
   margin: 0;
   height: 100%;
   border: 1px solid #000;
-}
+} */
 </style>
